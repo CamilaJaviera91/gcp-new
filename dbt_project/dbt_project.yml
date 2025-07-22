@@ -1,0 +1,19 @@
+name: postgres_dbt_project
+version: '1.0'
+config-version: 2
+
+profile: postgres_profile
+
+model-paths: ["models"]
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_modules"
+
+models:
+  postgres_dbt_project:
+    +schema: data
+    staging:
+      +materialized: view
+    marts:
+      +materialized: table
