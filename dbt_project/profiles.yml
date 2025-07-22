@@ -1,0 +1,12 @@
+postgres_profile:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: postgres       # nombre del contenedor si usas Docker Compose
+      user: postgres         # asegúrate de usar el usuario correcto
+      password: admin123     # asegúrate de usar la contraseña correcta
+      port: 5432
+      dbname: postgres       # nombre de la base de datos en PostgreSQL
+      schema: data
+      threads: 1
