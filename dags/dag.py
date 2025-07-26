@@ -1,6 +1,13 @@
 from airflow import DAG
 from airflow.operators.bash import BashOperator
+from airflow.operators.python import PythonOperator
 from datetime import datetime
+
+import sys
+import os
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+
+from scripts.extract.extract_users import extract_to_csv as csv
 
 default_args = {
     'owner': 'CamilaJaviera',
@@ -16,7 +23,14 @@ with DAG(
     catchup=False
 ) as dag:
 
-    run_dbt_users = BashOperator(
+    task_users = BashOperator(
         task_id='run_dbt_users',
         bash_command='dbt run --select staging.users --profiles-dir /opt/airflow/dbt_project --project-dir /opt/airflow/dbt_project'
     )
+
+    task_csv = PythonOperator(
+        task_id='extract_to_csv',
+        python_callable=csv,
+    )
+
+    task_users >> task_csv # type: ignore
