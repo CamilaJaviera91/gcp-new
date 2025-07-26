@@ -6,6 +6,7 @@
 
 ## 📂 Project Structure
 
+```
 ├── dags/
 │   └── dag.py
 ├── dbt_project/
@@ -28,5 +29,6 @@
 ├── LICENSE
 ├── README.md
 └── requirements.txt
+```
 
 ---
