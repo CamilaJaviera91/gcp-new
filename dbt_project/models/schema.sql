@@ -22,11 +22,8 @@ models:
           - accepted_values:
               values: ['M', 'F']
 
-      - name: role
-        description: "Assigned role to the user"
-
       - name: country
-        description: "User's country of origin"
+        description: "User's city of origin"
 
       - name: username
         description: "Generated username based on name and user_id"
@@ -39,11 +36,6 @@ models:
       - name: phone_number
         description: "Fake Chilean phone number"
 
-      - name: created_at
-        description: "Randomly generated creation date"
-        tests:
-          - not_null
-
       - name: status
         description: "User status (active or inactive)"
         tests:
@@ -51,5 +43,41 @@ models:
           - accepted_values:
               values: ['active', 'inactive']
 
-      - name: terminated_at
-        description: "Date when the user was marked as inactive, NULL if active"
+  - name: products
+    description: "Table of products generated with random data"
+    columns:
+      - name: product_id
+        description: "Unique identifier for the product"
+        tests:
+          - not_null
+          - unique
+
+      - name: product_name
+        description: "Product's name"
+
+      - name: category
+        description: "Product's category name"
+
+      - name: price
+        description: "Product's price"
+  
+  - name: orders
+    description: "Table of orders generated with the data of the previous tables"
+    columns:
+      - name: order_item_id
+        description: "Unique identifier for the item"
+        tests:
+          - not_null
+          - unique
+
+      - name: order_id
+        description: "Order's ID"
+
+      - name: client_id
+        description: "Client's ID"
+
+      - name: product_id
+        description: "Product's ID"
+
+      - name: sale_date
+        description: "Order's date"
