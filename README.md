@@ -65,3 +65,15 @@ dbt_project/
 ```
 
 ---
+
+## 🛠 Requirements
+
+Make sure you have the following installed:
+
+- Python 3.10+
+- Docker & Docker Compose
+- DBT (`dbt-core`, `dbt-postgres`)
+- Apache Airflow (v2+)
+- PostgreSQL
+
+---
