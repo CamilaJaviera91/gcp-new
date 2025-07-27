@@ -66,7 +66,7 @@ dbt_project/
 
 ---
 
-## 🛠 Requirements
+## 🛠️ Requirements
 
 Make sure you have the following installed:
 
