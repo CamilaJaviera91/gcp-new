@@ -30,6 +30,9 @@ dbt_project/
 └── staging/
 ```
 
+- `models/staging/`: Contains staging models for cleaning and preparing raw data.
+- `models/marts/`: Contains data marts for final models ready for analysis and reporting.
+
 ---
 
 ## 📂 Project Structure
