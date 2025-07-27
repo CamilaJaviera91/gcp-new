@@ -77,3 +77,15 @@ Make sure you have the following installed:
 - PostgreSQL
 
 ---
+
+## 📦 Installation
+
+```bash
+# Clone the repository
+git clone git@github.com:CamilaJaviera91/gcp-new.git
+cd gcp-new
+
+# Create required folders
+mkdir -p dags dbt_project/models/{staging,marts} files scripts/{extract,load,utils}
+
+---
