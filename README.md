@@ -1,6 +1,20 @@
 # 🚀 GCP-New
 
-**gcp-new** is a template/repository featuring Google Cloud Platform projects, scripts, and infrastructure-as-code for quick and easy deployment and experimentation.
+This project defines a modern data pipeline architecture using Airflow, DBT, and PostgreSQL. Below you'll find instructions on how to get started and how the repository is structured.
+
+---
+
+## 🚀 Getting Started
+
+Before running the pipeline, make sure to create the following folders in the root directory of the project:
+
+```
+.
+├── dags/
+├── dbt_project/
+├── files/
+└── scripts/
+```
 
 ---
 
