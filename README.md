@@ -14,6 +14,8 @@
 │   │   ├── marts/
 │   │   ├── schema.sql
 │   │   └── staging/
+│   │       ├── orders.sql
+│   │       ├── products.sql
 │   │       └── users.sql
 │   ├── dbt_project.yml
 │   └── profiles.yml
