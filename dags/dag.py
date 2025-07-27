@@ -7,7 +7,7 @@ import sys
 import os
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
-from scripts.extract.extract_users import extract_to_csv as csv
+from scripts.extract.extract import extract_to_csv as csv
 
 default_args = {
     'owner': 'CamilaJaviera',
