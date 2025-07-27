@@ -87,5 +87,6 @@ cd gcp-new
 
 # Create required folders
 mkdir -p dags dbt_project/models/{staging,marts} files scripts/{extract,load,utils}
+```
 
 ---
