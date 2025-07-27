@@ -16,6 +16,20 @@ Before running the pipeline, make sure to create the following folders in the ro
 └── scripts/
 ```
 
+- `dags/`: Contains Airflow DAGs to orchestrate the pipeline.
+- `dbt_project/`: Contains the DBT project with all SQL transformation models.
+- `files/`: Stores input/output files such as CSVs.
+- `scripts/`: Includes helper scripts for data extraction, validation, and loading.
+
+Inside the `dbt_project/` folder, make sure to create the following structure for your DBT models:
+
+```
+dbt_project/
+└── models/
+├── marts/
+└── staging/
+```
+
 ---
 
 ## 📂 Project Structure
