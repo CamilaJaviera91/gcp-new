@@ -1,12 +1,12 @@
 postgres_profile:
-  target: dev
   outputs:
     dev:
-      type: postgres
-      host: postgres       # nombre del contenedor si usas Docker Compose
-      user: postgres         # asegúrate de usar el usuario correcto
-      password: admin123     # asegúrate de usar la contraseña correcta
-      port: 5432
-      dbname: postgres       # nombre de la base de datos en PostgreSQL
-      schema: data
+      dbname: "{{ env_var('POSTGRES_DB') }}"
+      host: "{{ env_var('POSTGRES_HOST') }}"
+      pass: "{{ env_var('POSTGRES_PASSWORD') }}"
+      port: "{{ env_var('POSTGRES_PORT') | int }}"
+      schema: "{{ env_var('POSTGRES_SCHEMA', 'public') }}"
       threads: 1
+      type: postgres
+      user: "{{ env_var('POSTGRES_USER') }}"
+  target: dev
