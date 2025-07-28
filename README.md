@@ -81,8 +81,48 @@ Make sure the following structure exists before launching the containers:
 ├── scripts/ # Python scripts used in the pipeline
 ├── docker-compose.yml # Docker Compose setup file
 ├── Dockerfile.airflow
-└── README.md
+├── README.md
+└── requirements.txt
 ```
+
+### Python .env
+
+```
+# Airflow
+AIRFLOW__CORE__EXECUTOR=...
+AIRFLOW__CORE__LOAD_EXAMPLES=...
+AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=...
+AIRFLOW__WEBSERVER__SECRET_KEY=...
+
+# PostgreSQL
+POSTGRES_SCHEMA=...
+POSTGRES_HOST=...
+POSTGRES_PORT=...
+POSTGRES_DB=...
+POSTGRES_USER=...
+POSTGRES_PASSWORD=...
+```
+
+### 📦 Python Dependencies
+
+This project uses a `requirements.txt` file to manage all Python dependencies needed for the data pipeline, including Airflow, DBT, PostgreSQL, testing, and development tools.
+
+#### 🔧 What's Included
+
+| Category | Package(s) | Purpose |
+| -------- | ---------- | ------- |
+| **DBT** | `dbt-core`, `dbt-postgres`, `dbt-bigquery` | DBT functionality for PostgreSQL and BigQuery |
+| **Airflow** | `apache-airflow==2.9.1`, `apache-airflow-providers-openlineage` | Workflow orchestration |
+| **Database** | `psycopg2-binary==2.9.9` | PostgreSQL connector used by Airflow and DBT |
+| **Compatibility** | `protobuf<5`, `sqlparse<0.5` | Ensures compatibility with DBT and Airflow |
+| **Environment Variables** | `python-dotenv==1.1.0` | Loads `.env` files for secure and flexible config |
+| **Synthetic Data** | `faker==24.9.0` | Generate fake data for testing or mock pipelines  |
+| **Testing** | `pytest`, `pytest-mock`  Unit testing and mocking for pipeline components |
+| **Code Quality** | `black`, `flake8`, `isort` | Code formatting, linting, and import sorting |
+| **Data Analysis** | `numpy`, `pandas`, `matplotlib` | Analyze, transform, and visualize data in Python |
+| **GoogleSheets Integration**|`gspread`, `gspread-dataframe`, `oauth2client`| Interact with GoogleSheets via API |
+
+
 
 ### ⚙️ docker-compose.yml
 
