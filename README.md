@@ -80,5 +80,89 @@ Make sure the following structure exists before launching the containers:
 ├── files/ # CSVs, exports, or intermediate files
 ├── scripts/ # Python scripts used in the pipeline
 ├── docker-compose.yml # Docker Compose setup file
+├── Dockerfile.airflow
 └── README.md
 ```
+
+### ⚙️ docker-compose.yml
+
+A simplified example of your `docker-compose.yml` might look like:
+
+```
+services:
+  postgres:
+    image: postgres:15
+    container_name: postgres
+    environment:
+      POSTGRES_USER: ...
+      POSTGRES_PASSWORD: ...
+      POSTGRES_DB: ...
+    ports:
+      - "5432:5432"
+    networks:
+      - airflow_network
+
+  airflow-webserver:
+    build:
+      context: .
+      dockerfile: Dockerfile.airflow
+    container_name: airflow-webserver
+    restart: always
+    environment:
+      AIRFLOW__CORE__EXECUTOR: ...
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: ...
+      AIRFLOW__CORE__LOAD_EXAMPLES: ...
+    volumes:
+      - (add folders in the structure ex:./dags:/opt/airflow/dags)
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    networks:
+      - airflow_network
+    command: webserver
+
+  airflow-scheduler:
+    build:
+      context: .
+      dockerfile: Dockerfile.airflow
+    container_name: airflow-scheduler
+    restart: always
+    depends_on:
+      - postgres
+    volumes:
+      - (add folders in the structure ex:./dags:/opt/airflow/dags)
+    environment:
+      AIRFLOW__CORE__EXECUTOR: ...
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: ...
+    networks:
+      - airflow_network
+    command: scheduler
+
+  airflow-init:
+    build:
+      context: .
+      dockerfile: Dockerfile.airflow
+    container_name: airflow-init
+    depends_on:
+      - postgres      
+    volumes:
+        - (add folders in the structure ex:./dags:/opt/airflow/dags)
+    environment:
+      AIRFLOW__CORE__EXECUTOR: ...
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: ...
+    entrypoint: >
+      bash -c "airflow db init &&
+               airflow users create --username admin --password admin --firstname User --lastname UserLastName --role Admin --email user@example.com"
+    networks:
+      - airflow_network
+
+volumes:
+  pgdata:
+
+networks:
+  airflow_network:
+
+```
+
+### 🐍 Dockerfile.airflow
