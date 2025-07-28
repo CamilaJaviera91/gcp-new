@@ -276,3 +276,5 @@ Airflow automatically refreshes the DAG list every ~30 seconds. If your DAGs don
 
 - Ensure the `.py` files in `dags/` define at least one valid `DAG` object
 - Check container logs with `docker compose logs -f airflow-webserver`
+
+---
