@@ -166,3 +166,17 @@ networks:
 ```
 
 ### 🐍 Dockerfile.airflow
+
+This file sets up the Airflow environment with Python dependencies and your DBT project.
+
+```
+FROM apache/airflow:2.10.0-python3.11
+
+USER root
+RUN apt-get update && apt-get install -y build-essential git
+
+USER airflow
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+```
