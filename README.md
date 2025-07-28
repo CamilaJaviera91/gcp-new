@@ -261,3 +261,18 @@ If you used the initialization script (`./1_init.sh`), the following admin user 
 - **Password:** `admin`
 
 > 💡 You can customize these credentials by modifying the `airflow users create` command inside the `airflow-init` service or the `1_init.sh` script.
+
+### 🖥️ What you’ll see
+
+After logging in, you’ll be able to:
+
+- View all DAGs in the `dags/` folder
+- Trigger DAGs manually or wait for scheduled runs
+- Monitor task statuses and inspect logs
+- Manage Airflow Connections, Variables, and Pools
+- Access admin configurations and user management
+
+Airflow automatically refreshes the DAG list every ~30 seconds. If your DAGs don’t show up:
+
+- Ensure the `.py` files in `dags/` define at least one valid `DAG` object
+- Check container logs with `docker compose logs -f airflow-webserver`
