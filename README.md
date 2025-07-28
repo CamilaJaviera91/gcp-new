@@ -259,3 +259,5 @@ If you used the initialization script (`./1_init.sh`), the following admin user 
 
 - **Username:** `admin`  
 - **Password:** `admin`
+
+> 💡 You can customize these credentials by modifying the `airflow users create` command inside the `airflow-init` service or the `1_init.sh` script.
