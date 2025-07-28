@@ -1,4 +1,4 @@
-# 🚀 GCP-New
+# 🌀🛠️🐘 airflow-dbt-postgres
 
 This project defines a modern data pipeline architecture using Airflow, DBT, and PostgreSQL. Below you'll find instructions on how to get started and how the repository is structured.
 
