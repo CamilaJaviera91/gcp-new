@@ -85,7 +85,7 @@ Make sure the following structure exists before launching the containers:
 └── requirements.txt
 ```
 
-### Python .env
+### 🐍 Python .env
 
 ```
 # Airflow
@@ -121,8 +121,6 @@ This project uses a `requirements.txt` file to manage all Python dependencies ne
 | **Code Quality** | `black`, `flake8`, `isort` | Code formatting, linting, and import sorting |
 | **Data Analysis** | `numpy`, `pandas`, `matplotlib` | Analyze, transform, and visualize data in Python |
 | **GoogleSheets Integration**|`gspread`, `gspread-dataframe`, `oauth2client`| Interact with GoogleSheets via API |
-
-
 
 ### ⚙️ docker-compose.yml
 
@@ -205,7 +203,7 @@ networks:
 
 ```
 
-### 🐍 Dockerfile.airflow
+### 🌀 Dockerfile.airflow
 
 This file sets up the Airflow environment with Python dependencies and your DBT project.
 
