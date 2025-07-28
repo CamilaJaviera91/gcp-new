@@ -218,3 +218,27 @@ USER airflow
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 ```
+
+---
+
+## ⚙️ Helper Scripts
+
+To simplify setup and maintenance, the project includes the following Bash scripts:
+
+- `1_init.sh` — Airflow Initialization:
+
+    - This script runs the Airflow initialization process (`airflow db init` and user creation).
+
+- `2_reset_docker.sh'`  — Full Environment Reset:
+    
+    - Stop all containers
+
+    - Remove volumes and orphans
+
+    - Rebuild and relaunch the environment from scratch
+
+- `3_fix_permissions.sh` — Set Permissions for Mounted Volumes
+
+    - Run this if you encounter permission issues when mounting folders into the Airflow container (especially on Linux).
+
+---
