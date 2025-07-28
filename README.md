@@ -242,3 +242,20 @@ To simplify setup and maintenance, the project includes the following Bash scrip
     - Run this if you encounter permission issues when mounting folders into the Airflow container (especially on Linux).
 
 ---
+
+## 🌐 Access the Airflow Web UI
+
+Once the containers are up and the initialization step has been completed, you can access the **Apache Airflow** web interface to monitor, manage, and trigger your DAGs.
+
+### 🔗 Open in your browser
+
+[Localhost:8080](http://localhost:8080)
+
+This URL points to the **Airflow webserver** running inside the Docker container and exposed on your local machine's port `8080`.
+
+### 🔐 Default login credentials
+
+If you used the initialization script (`./1_init.sh`), the following admin user was created automatically:
+
+- **Username:** `admin`  
+- **Password:** `admin`
