@@ -99,3 +99,17 @@ This project uses Docker Compose to orchestrate the following services:
 - **Airflow Webserver**: Provides the UI for managing and monitoring DAGs.
 - **Airflow Scheduler**: Triggers task instances based on scheduling.
 - **Airflow Init**: Initializes the Airflow metadata database and prepares folders and permissions.
+
+### 📁 Directory Structure
+
+Make sure the following structure exists before launching the containers:
+
+```
+.
+├── dags/ # Your Airflow DAGs go here
+├── dbt_project/ # DBT models and config
+├── files/ # CSVs, exports, or intermediate files
+├── scripts/ # Python scripts used in the pipeline
+├── docker-compose.yml # Docker Compose setup file
+└── README.md
+```
