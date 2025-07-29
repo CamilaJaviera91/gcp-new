@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: users
+  - name: clients
     description: "Table of users generated with random data."
     columns:
       - name: user_id
