@@ -1,6 +1,14 @@
-# 🌀🛠️🐘 airflow-dbt-postgres
+# 🌀 Airflow + DBT + PostgreSQL Data Pipeline
 
-This project defines a modern data pipeline architecture using Airflow, DBT, and PostgreSQL. Below you'll find instructions on how to get started and how the repository is structured.
+This repository implements a modern, modular data pipeline using:
+
+- Apache Airflow for orchestration
+
+- DBT for SQL-based transformations
+
+- PostgreSQL as both the source/target database and metadata store
+
+> 💡 Ideal for learning, development, and lightweight data integration projects.
 
 ---
 
