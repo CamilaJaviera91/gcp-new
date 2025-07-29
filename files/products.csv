@@ -1,0 +1,21 @@
+product_id,product_name,category,price
+1,iPhone 14,Smartphones,899.99
+2,Samsung Galaxy S23,Smartphones,849.99
+3,"MacBook Pro 14""",Laptops,1999.0
+4,Dell XPS 13,Laptops,1499.0
+5,AirPods Pro,Audio,249.0
+6,Bose QC 45,Audio,329.0
+7,Logitech MX Master 3,Accessories,99.99
+8,Apple Magic Keyboard,Accessories,129.99
+9,"Sony Bravia 55""",Televisions,1099.0
+10,"Samsung QLED 65""",Televisions,1299.0
+11,Kindle Paperwhite,E-Readers,139.99
+12,Google Nest Hub,Smart Home,99.99
+13,Instant Pot Duo,Kitchen,89.99
+14,Ninja Air Fryer,Kitchen,119.99
+15,Fitbit Charge 5,Wearables,149.99
+16,Apple Watch Series 8,Wearables,399.0
+17,Canon EOS M50,Cameras,679.0
+18,GoPro HERO11,Cameras,499.0
+19,Philips Hue Bulb,Smart Home,49.99
+20,Razer Gaming Chair,Gaming,349.0
