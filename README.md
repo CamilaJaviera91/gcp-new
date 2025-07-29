@@ -122,84 +122,15 @@ This project uses a `requirements.txt` file to manage all Python dependencies ne
 
 ### 🛠️ Docker Compose Setup
 
-A simplified example of your `docker-compose.yml` might look like:
+Sample docker-compose.yml setup is included in the repo and features:
 
-```
-services:
-  postgres:
-    image: postgres:15
-    container_name: postgres
-    environment:
-      POSTGRES_USER: ...
-      POSTGRES_PASSWORD: ...
-      POSTGRES_DB: ...
-    ports:
-      - "5432:5432"
-    networks:
-      - airflow_network
+- PostgreSQL with persistent volume
 
-  airflow-webserver:
-    build:
-      context: .
-      dockerfile: Dockerfile.airflow
-    container_name: airflow-webserver
-    restart: always
-    environment:
-      AIRFLOW__CORE__EXECUTOR: ...
-      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: ...
-      AIRFLOW__CORE__LOAD_EXAMPLES: ...
-    volumes:
-      - (add folders in the structure ex:./dags:/opt/airflow/dags)
-    ports:
-      - "8080:8080"
-    depends_on:
-      - postgres
-    networks:
-      - airflow_network
-    command: webserver
+- Airflow Webserver, Scheduler, Init
 
-  airflow-scheduler:
-    build:
-      context: .
-      dockerfile: Dockerfile.airflow
-    container_name: airflow-scheduler
-    restart: always
-    depends_on:
-      - postgres
-    volumes:
-      - (add folders in the structure ex:./dags:/opt/airflow/dags)
-    environment:
-      AIRFLOW__CORE__EXECUTOR: ...
-      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: ...
-    networks:
-      - airflow_network
-    command: scheduler
+- Custom Dockerfile for Airflow + DBT + Python deps
 
-  airflow-init:
-    build:
-      context: .
-      dockerfile: Dockerfile.airflow
-    container_name: airflow-init
-    depends_on:
-      - postgres      
-    volumes:
-        - (add folders in the structure ex:./dags:/opt/airflow/dags)
-    environment:
-      AIRFLOW__CORE__EXECUTOR: ...
-      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: ...
-    entrypoint: >
-      bash -c "airflow db init &&
-               airflow users create --username admin --password admin --firstname User --lastname UserLastName --role Admin --email user@example.com"
-    networks:
-      - airflow_network
-
-volumes:
-  pgdata:
-
-networks:
-  airflow_network:
-
-```
+> ✅ Make sure volumes: in each service are properly mapped to ./dags, ./scripts, etc.
 
 ### 🌀 Dockerfile.airflow
 
