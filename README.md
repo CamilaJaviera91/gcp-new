@@ -176,8 +176,10 @@ This URL points to the **Airflow webserver** running inside the Docker container
 
 If you used the initialization script (`./1_init.sh`), the following admin user was created automatically:
 
-- **Username:** `admin`  
-- **Password:** `admin`
+```
+Username: admin  
+Password: admin
+```
 
 > 💡 You can customize these credentials by modifying the `airflow users create` command inside the `airflow-init` service or the `1_init.sh` script.
 
@@ -191,9 +193,10 @@ After logging in, you’ll be able to:
 - Manage Airflow Connections, Variables, and Pools
 - Access admin configurations and user management
 
-Airflow automatically refreshes the DAG list every ~30 seconds. If your DAGs don’t show up:
+### 🛠️ Troubleshooting DAGs
+If DAGs don't appear:
 
-- Ensure the `.py` files in `dags/` define at least one valid `DAG` object
-- Check container logs with `docker compose logs -f airflow-webserver`
+- Check that dags/*.py files define a DAG object
 
+- Use: docker compose logs -f airflow-webserver for debug
 ---
