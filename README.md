@@ -211,3 +211,6 @@ This pipeline is ready for:
 - [ ] 📊 Connecting to Looker Studio or Power BI
 
 ---
+
+## 📬 Feedback or Questions?
+Feel free to open an issue or submit a PR!
