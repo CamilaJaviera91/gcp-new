@@ -25,7 +25,7 @@ city AS (
 ),
 base AS (
     SELECT 
-        generate_series(1, 1000) AS user_id,
+        generate_series(1, 1000) AS client_id,
         (random() * interval '3 years') AS random_date,
         floor(random() * 20 + 1)::int AS fn_id,
         floor(random() * 20 + 1)::int AS ln_id,
@@ -37,7 +37,7 @@ base AS (
 ),
 user_data AS (
     SELECT
-        b.user_id,
+        b.client_id,
         fn.first_name,
         ln.last_name,
         CASE 
@@ -47,9 +47,9 @@ user_data AS (
         END AS gender,
         c.country,
         CONCAT(lower(regexp_replace(fn.first_name, '[^a-zA-Z]', '', 'g')), '_',
-               lower(regexp_replace(ln.last_name, '[^a-zA-Z]', '', 'g')), '_', b.user_id) AS username,
+               lower(regexp_replace(ln.last_name, '[^a-zA-Z]', '', 'g')), '_', b.client_id) AS username,
         lower(
-            regexp_replace(CONCAT(fn.first_name, '.', ln.last_name, b.user_id, '@example.com'), '[^a-zA-Z0-9.@]', '', 'g')
+            regexp_replace(CONCAT(fn.first_name, '.', ln.last_name, b.client_id, '@example.com'), '[^a-zA-Z0-9.@]', '', 'g')
         ) AS email,
         CONCAT('+56 9 ', LPAD((floor(random() * 100000000)::int)::text, 8, '0')) AS phone_number,
         b.status
