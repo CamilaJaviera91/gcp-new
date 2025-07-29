@@ -205,7 +205,7 @@ If DAGs don't appear:
 ## 📈 What’s Next?
 This pipeline is ready for:
 
-- [ ] 💡 Building DAGs with Python and Airflow
+- [X] 💡 Building DAGs with Python and Airflow
 - [ ] 🧠 Modeling datasets with DBT and version control
 - [ ] 📤 Exporting data to CSV or Google Sheets
 - [ ] 📊 Connecting to Looker Studio or Power BI
