@@ -4,7 +4,7 @@ models:
   - name: clients
     description: "Table of users generated with random data."
     columns:
-      - name: user_id
+      - name: client_id
         description: "Unique identifier of the user."
         tests:
           - not_null
@@ -83,7 +83,9 @@ models:
         description: "Date when the order was placed."
 
   - name: final_report
+
     description: "Final report table that consolidates information from orders, users, and products."
+
     columns:
       - name: order_id
         description: "Identifier of the order."
@@ -116,5 +118,35 @@ models:
 
       - name: product_price
         description: "Unit price of the product at the time of purchase."
+        tests:
+          - not_null
+      
+  - name: sales_by_product
+  
+    description: "Monthly and yearly sales totals per product."
+  
+    columns:
+      - name: ProductID
+        description: "Unique identifier of the product."
+        tests:
+          - not_null
+
+      - name: ProductName
+        description: "Name of the product."
+        tests:
+          - not_null
+
+      - name: Month
+        description: "Month of the sale date (1-12)."
+        tests:
+          - not_null
+
+      - name: Year
+        description: "Year of the sale date."
+        tests:
+          - not_null
+
+      - name: Total
+        description: "Total sales revenue for the product in the given month and year."
         tests:
           - not_null
