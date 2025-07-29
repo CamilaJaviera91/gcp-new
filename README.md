@@ -39,7 +39,7 @@ Before running the pipeline, make sure to create the following folders in the ro
 - `scripts/`: Includes helper scripts for data extraction, validation, and loading.
 ---
 
-## 🛠️ Requirements
+## 🛠️ Prerequisites
 
 Make sure you have the following installed:
 
