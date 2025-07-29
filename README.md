@@ -75,23 +75,13 @@ This project uses Docker Compose to orchestrate the following services:
 | **Airflow Scheduler** | Triggers DAG tasks based on time or sensors    |
 | **Airflow Init**      | Initializes metadata DB, creates user          |
 
-### 📁 Directory Structure
+> Make sure the previous structure exists before launching the containers:
 
-Make sure the following structure exists before launching the containers:
+---
 
-```
-.
-├── dags/ # Your Airflow DAGs go here
-├── dbt_project/ # DBT models and config
-├── files/ # CSVs, exports, or intermediate files
-├── scripts/ # Python scripts used in the pipeline
-├── docker-compose.yml # Docker Compose setup file
-├── Dockerfile.airflow
-├── README.md
-└── requirements.txt
-```
+## ⚙️ .env Configuration
 
-### 🐍 Python .env
+Create a .env file with the following (sample):
 
 ```
 # Airflow
@@ -109,7 +99,9 @@ POSTGRES_USER=...
 POSTGRES_PASSWORD=...
 ```
 
-### 📦 Python Dependencies
+---
+
+## 📦 Python Dependencies
 
 This project uses a `requirements.txt` file to manage all Python dependencies needed for the data pipeline, including Airflow, DBT, PostgreSQL, testing, and development tools.
 
@@ -128,7 +120,7 @@ This project uses a `requirements.txt` file to manage all Python dependencies ne
 | **Data Analysis** | `numpy`, `pandas`, `matplotlib` | Analyze, transform, and visualize data in Python |
 | **GoogleSheets Integration**|`gspread`, `gspread-dataframe`, `oauth2client`| Interact with GoogleSheets via API |
 
-### ⚙️ docker-compose.yml
+### 🛠️ Docker Compose Setup
 
 A simplified example of your `docker-compose.yml` might look like:
 
