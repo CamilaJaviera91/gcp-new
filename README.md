@@ -18,29 +18,25 @@ Before running the pipeline, make sure to create the following folders in the ro
 
 ```
 .
-├── dags/
-├── dbt_project/
-├── files/
-└── scripts/
+├── dags/               # Airflow DAG definitions
+├── dbt_project/        # DBT transformations and config
+│   └── models/
+│       ├── staging/    # Raw → Staging transformations
+│       └── marts/      # Staging → Marts (analytics-ready)
+├── files/              # CSVs, exports, mock datasets
+├── scripts/            # Python utilities for extract/load/validation
+│   ├── extract/
+│   ├── load/
+│   └── utils/
 ```
 
 - `dags/`: Contains Airflow DAGs to orchestrate the pipeline.
 - `dbt_project/`: Contains the DBT project with all SQL transformation models.
+  - `dbt_project/models`
+    - `dbt_project/models/staging/`: Contains staging models for cleaning and preparing raw data.
+    - `dbt_project/models/marts/`: Contains data marts for final models ready for analysis and reporting.
 - `files/`: Stores input/output files such as CSVs.
 - `scripts/`: Includes helper scripts for data extraction, validation, and loading.
-
-Inside the `dbt_project/` folder, make sure to create the following structure for your DBT models:
-
-```
-dbt_project/
-└── models/
-├── marts/
-└── staging/
-```
-
-- `models/staging/`: Contains staging models for cleaning and preparing raw data.
-- `models/marts/`: Contains data marts for final models ready for analysis and reporting.
-
 ---
 
 ## 🛠️ Requirements
