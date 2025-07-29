@@ -43,9 +43,14 @@ with DAG(
         bash_command='dbt run --select marts.final_report --profiles-dir /opt/airflow/dbt_project --project-dir /opt/airflow/dbt_project'
     )
 
+    task_report_2 = BashOperator(
+        task_id='sales_by_product',
+        bash_command='dbt run --select marts.sales_by_product --profiles-dir /opt/airflow/dbt_project --project-dir /opt/airflow/dbt_project'
+    )
+
     task_csv = PythonOperator(
         task_id='extract_to_csv',
         python_callable=csv,
     )
 
-    task_users >> task_products >> task_orders >> task_report >> task_csv # type: ignore
+    task_users >> task_products >> task_orders >> task_report >> task_report_2 >> task_csv # type: ignore
