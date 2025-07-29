@@ -24,22 +24,22 @@ with DAG(
 ) as dag:
 
     task_users = BashOperator(
-        task_id='run_dbt_users',
-        bash_command='dbt run --select staging.users --profiles-dir /opt/airflow/dbt_project --project-dir /opt/airflow/dbt_project'
+        task_id='clients',
+        bash_command='dbt run --select staging.clients --profiles-dir /opt/airflow/dbt_project --project-dir /opt/airflow/dbt_project'
     )
 
     task_products = BashOperator(
-        task_id='run_dbt_products',
+        task_id='products',
         bash_command='dbt run --select staging.products --profiles-dir /opt/airflow/dbt_project --project-dir /opt/airflow/dbt_project'
     )
 
     task_orders = BashOperator(
-        task_id='run_dbt_orders',
+        task_id='orders',
         bash_command='dbt run --select staging.orders --profiles-dir /opt/airflow/dbt_project --project-dir /opt/airflow/dbt_project'
     )
 
     task_report = BashOperator(
-        task_id='run_dbt_final_report',
+        task_id='final_report',
         bash_command='dbt run --select marts.final_report --profiles-dir /opt/airflow/dbt_project --project-dir /opt/airflow/dbt_project'
     )
 
