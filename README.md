@@ -68,10 +68,12 @@ mkdir -p dags dbt_project/models/{staging,marts} files scripts/{extract,load,uti
 
 This project uses Docker Compose to orchestrate the following services:
 
-- **PostgreSQL**: Acts as the metadata database for Airflow and also stores project data.
-- **Airflow Webserver**: Provides the UI for managing and monitoring DAGs.
-- **Airflow Scheduler**: Triggers task instances based on scheduling.
-- **Airflow Init**: Initializes the Airflow metadata database and prepares folders and permissions.
+| Service               | Description                                    |
+| --------------------- | ---------------------------------------------- |
+| **PostgreSQL**        | Stores raw/transformed data & Airflow metadata |
+| **Airflow Webserver** | UI to manage DAGs                              |
+| **Airflow Scheduler** | Triggers DAG tasks based on time or sensors    |
+| **Airflow Init**      | Initializes metadata DB, creates user          |
 
 ### 📁 Directory Structure
 
