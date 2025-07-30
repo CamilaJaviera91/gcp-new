@@ -21,11 +21,23 @@ services:
       AIRFLOW__CORE__EXECUTOR: ${AIRFLOW__CORE__EXECUTOR}
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: ${AIRFLOW__DATABASE__SQL_ALCHEMY_CONN}
       AIRFLOW__CORE__LOAD_EXAMPLES: ${AIRFLOW__CORE__LOAD_EXAMPLES}
+      AIRFLOW__WEBSERVER__SECRET_KEY: ${AIRFLOW__WEBSERVER__SECRET_KEY}
+      POSTGRES_HOST: ${POSTGRES_HOST}
+      POSTGRES_PORT: ${POSTGRES_PORT}
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_SCHEMA: ${POSTGRES_SCHEMA}
+      GOOGLE_CREDENTIALS_PATH: ${GOOGLE_CREDENTIALS_PATH}
+      BQ_PROJECT_ID: ${BQ_PROJECT_ID}
+      BQ_DATASET: ${BQ_DATASET}
+
     volumes:
       - ./dags:/opt/airflow/dags:z
       - ./scripts:/opt/airflow/scripts:z
       - ./dbt_project:/opt/airflow/dbt_project:z
       - ./files:/opt/airflow/files:z
+      - ./credentials/auth.json:/home/airflow/gcloud/auth.json:z
     ports:
       - "8080:8080"
     depends_on:
@@ -47,9 +59,20 @@ services:
       - ./scripts:/opt/airflow/scripts:z
       - ./dbt_project:/opt/airflow/dbt_project:z
       - ./files:/opt/airflow/files:z
+      - ./credentials/auth.json:/home/airflow/gcloud/auth.json:z
     environment:
       AIRFLOW__CORE__EXECUTOR: ${AIRFLOW__CORE__EXECUTOR}
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: ${AIRFLOW__DATABASE__SQL_ALCHEMY_CONN}
+      AIRFLOW__WEBSERVER__SECRET_KEY: ${AIRFLOW__WEBSERVER__SECRET_KEY}
+      POSTGRES_HOST: ${POSTGRES_HOST}
+      POSTGRES_PORT: ${POSTGRES_PORT}
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_SCHEMA: ${POSTGRES_SCHEMA}
+      GOOGLE_CREDENTIALS_PATH: ${GOOGLE_CREDENTIALS_PATH}
+      BQ_PROJECT_ID: ${BQ_PROJECT_ID}
+      BQ_DATASET: ${BQ_DATASET}
     networks:
       - airflow_network
     command: scheduler
@@ -66,6 +89,7 @@ services:
       - ./scripts:/opt/airflow/scripts:z
       - ./dbt_project:/opt/airflow/dbt_project:z
       - ./files:/opt/airflow/files:z
+      - ./credentials/auth.json:/home/airflow/gcloud/auth.json:z
     environment:
       AIRFLOW__CORE__EXECUTOR: ${AIRFLOW__CORE__EXECUTOR}
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: ${AIRFLOW__DATABASE__SQL_ALCHEMY_CONN}
@@ -80,3 +104,4 @@ volumes:
 
 networks:
   airflow_network:
+  
