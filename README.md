@@ -14,6 +14,47 @@ This repository implements a modern, modular data pipeline using:
 
 ## 📂 Project Structure
 
+```
+.
+├── 1_init.sh
+├── 2_reset_docker.sh
+├── 3_fix_permissions.sh
+├── credentials #gitignore
+│   └── auth.json
+├── dags
+│   └── dag.py
+├── dbt_project
+│   ├── dbt_project.yml
+│   ├── models
+│   │   ├── marts
+│   │   │   ├── final_report.sql
+│   │   │   └── sales_by_product.sql
+│   │   ├── schema.sql
+│   │   └── staging
+│   │       ├── clients.sql
+│   │       ├── orders.sql
+│   │       └── products.sql
+│   └── profiles.yml
+├── docker-compose.yml
+├── Dockerfile.airflow
+├── files
+│   ├── clients.csv
+│   ├── final_report.csv
+│   ├── orders.csv
+│   ├── products.csv
+│   └── sales_by_product.csv
+├── LICENSE
+├── README.md
+├── requirements.txt
+└── scripts
+    ├── extract
+    │   └── extract.py
+    ├── load
+    │   └── load_data.py
+    └── utils
+        └── utils.py
+```
+
 ---
 
 ## 🚀 Getting Started
