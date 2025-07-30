@@ -12,6 +12,10 @@ This repository implements a modern, modular data pipeline using:
 
 ---
 
+## 📂 Project Structure
+
+---
+
 ## 🚀 Getting Started
 
 Before running the pipeline, make sure to create the following folders in the root directory of the project:
