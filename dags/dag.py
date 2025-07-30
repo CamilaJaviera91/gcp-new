@@ -8,6 +8,7 @@ import os
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
 from scripts.extract.extract import extract_to_csv as csv
+from scripts.load.load_data import load_all_tables_to_bq as bq
 
 default_args = {
     'owner': 'CamilaJaviera',
@@ -48,9 +49,14 @@ with DAG(
         bash_command='dbt run --select marts.sales_by_product --profiles-dir /opt/airflow/dbt_project --project-dir /opt/airflow/dbt_project'
     )
 
+    task_bq = PythonOperator(
+        task_id='load_all_tables_to_bq',
+        python_callable=bq,
+    )
+
     task_csv = PythonOperator(
         task_id='extract_to_csv',
         python_callable=csv,
     )
 
-    task_users >> task_products >> task_orders >> task_report >> task_report_2 >> task_csv # type: ignore
+    task_users >> task_products >> task_orders >> task_report >> task_report_2 >> task_bq >> task_csv # type: ignore
