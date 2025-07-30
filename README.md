@@ -214,8 +214,8 @@ This pipeline is ready for:
 
 - [X] 💡 Building DAGs with Python and Airflow
 - [X] 📤 Exporting data to CSV or Google Sheets
-- [X] 📊 Connecting to BigQuery
-- [ ] 📊 Create visualization
+- [X] 🔗 Connecting to BigQuery
+- [ ] 📊 Creating visualization
 - [ ] 🧠 Modeling datasets with DBT and version control
 
 ---
