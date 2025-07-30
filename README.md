@@ -213,9 +213,10 @@ If DAGs don't appear:
 This pipeline is ready for:
 
 - [X] 💡 Building DAGs with Python and Airflow
-- [ ] 🧠 Modeling datasets with DBT and version control
 - [X] 📤 Exporting data to CSV or Google Sheets
 - [X] 📊 Connecting to BigQuery
+- [ ] 📊 Create visualization
+- [ ] 🧠 Modeling datasets with DBT and version control
 
 ---
 
