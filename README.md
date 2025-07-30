@@ -214,8 +214,8 @@ This pipeline is ready for:
 
 - [X] 💡 Building DAGs with Python and Airflow
 - [ ] 🧠 Modeling datasets with DBT and version control
-- [ ] 📤 Exporting data to CSV or Google Sheets
-- [ ] 📊 Connecting to Looker Studio or Power BI
+- [X] 📤 Exporting data to CSV or Google Sheets
+- [X] 📊 Connecting to BigQuery
 
 ---
 
